@@ -6,6 +6,6 @@
         public string Naam { get; set; }
         public int Duur { get; set; }
         public int Moeilijkheid { get; set; }
-
+        public List<Ingredient> Ingredienten { get; set; }
     }
 }

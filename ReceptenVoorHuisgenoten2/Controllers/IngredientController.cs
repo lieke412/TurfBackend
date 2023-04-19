@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Logic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace IngredientenVoorHuisgenoten2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowAllOrigins")]
     public class IngredientController : ControllerBase
     {
         private readonly DataContext Context;

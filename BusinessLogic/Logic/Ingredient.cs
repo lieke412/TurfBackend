@@ -10,5 +10,6 @@ namespace BusinessLogic.Logic
     {
         public int ID { get; set; }
         public string Naam { get; set; }
+
     }
 }

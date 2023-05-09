@@ -1,0 +1,34 @@
+.bodyDiv {
+    margin-left: 2%; 
+    margin-top: 50px; 
+    margin-right: 2%;
+}
+
+.tableIndex {
+    display: flex; 
+    background-color: #cbc3aa; 
+    margin-bottom: 3px;
+}
+
+.insideTable {
+    width: 20%; 
+    margin-left: 1.5%; 
+    height: 50px; 
+    border-radius: 5px;
+}
+
+.formTable {
+    width: 20%; margin-left: 1.5%;
+}
+
+.saveTable {
+    margin-top: auto; 
+    margin-bottom: auto; 
+    margin-left: 15px;
+}
+
+.divRemove {
+    margin-top: auto; 
+    margin-bottom: auto; 
+    margin-left: 15px;
+}

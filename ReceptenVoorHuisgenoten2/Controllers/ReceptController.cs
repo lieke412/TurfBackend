@@ -73,5 +73,16 @@ namespace ReceptenVoorHuisgenoten2.Controllers
 
             return Ok(await Context.Recepten.ToListAsync());
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Recept>> GetIngredientenByRecept(int id)
+        {
+            var recept = await Context.Recepten.FindAsync(id);
+            if (recept == null)
+            {
+                return BadRequest("Recept not found.");
+            }
+            return Ok(recept);
+        }
     }
 }

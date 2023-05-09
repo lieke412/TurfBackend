@@ -1,16 +1,14 @@
 <template>
   <navBar/>
-  <recept/>
+  <RouterView/>
 </template>
 
 <script>
-import recept from './components/ReceptenList'
 import navBar from './components/NavBar'
 
 export default {
   name: 'App',
   components: {
-    recept,
     navBar
   }
 }
@@ -21,7 +19,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  justify-content: left;
   color: #2c3e50;
   margin-top: 60px;
 }

@@ -1,15 +1,25 @@
 <template>
-  <div>
+  <div style="margin-left: -10px">
     <ul class="headerList">
       <li class="headerListItem"><a href="#">Home</a></li>
-      <li class="headerListItem"><a href="#">Recepten</a></li>
-      <li class="headerListItem"><a href="#">Ingrediënten</a></li>
+      <li class="headerListItem" @click="goToRecept"><a href="#">Recepten</a></li>
+      <li class="headerListItem" @click="goToIngredient"><a href="#">Ingrediënten</a></li>
     </ul>
   </div>
 </template>
 
 <script>
-export default{name: "navBar"}
+export default{
+  name: "navBar",
+  methods: {
+    goToIngredient() {
+      this.$router.push('/Ingredient')
+    },
+    goToRecept() {
+      this.$router.push('/Recept')
+    },
+  }
+  }
 </script>
 
 <style>

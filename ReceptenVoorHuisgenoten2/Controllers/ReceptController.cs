@@ -1,5 +1,4 @@
 ﻿using BusinessLogic.Logic;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ReceptenVoorHuisgenoten2.Controllers
@@ -20,7 +19,7 @@ namespace ReceptenVoorHuisgenoten2.Controllers
         {
             return Ok(await Context.Recepten.ToListAsync());
         }
-
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Recept>> Get(int id)
         {
@@ -53,6 +52,7 @@ namespace ReceptenVoorHuisgenoten2.Controllers
             dbRecept.Naam = request.Naam;
             dbRecept.Duur = request.Duur;
             dbRecept.Moeilijkheid = request.Moeilijkheid;
+            dbRecept.Beschrijving = request.Beschrijving;
 
             await Context.SaveChangesAsync();
 
@@ -72,17 +72,6 @@ namespace ReceptenVoorHuisgenoten2.Controllers
             await Context.SaveChangesAsync();
 
             return Ok(await Context.Recepten.ToListAsync());
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Recept>> GetIngredientenByRecept(int id)
-        {
-            var recept = await Context.Recepten.FindAsync(id);
-            if (recept == null)
-            {
-                return BadRequest("Recept not found.");
-            }
-            return Ok(recept);
         }
     }
 }

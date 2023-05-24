@@ -9,6 +9,5 @@ namespace ReceptenVoorHuisgenoten2.Data
 
         public DbSet<Recept> Recepten { get; set; }
         public DbSet<Ingredient> Ingredienten { get; set; }
-        //public DbSet<ReceptIngredient> ReceptIngredienten { get; set; }
     }
 }

@@ -11,6 +11,19 @@ namespace ReceptenVoorHuisgenoten2.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Ingredienten",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Naam = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ingredienten", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Recepten",
                 columns: table => new
                 {
@@ -18,36 +31,13 @@ namespace ReceptenVoorHuisgenoten2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duur = table.Column<int>(type: "int", nullable: false),
-                    Moeilijkheid = table.Column<int>(type: "int", nullable: false)
+                    Moeilijkheid = table.Column<int>(type: "int", nullable: false),
+                    Beschrijving = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recepten", x => x.ID);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "Ingredienten",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naam = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ReceptID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ingredienten", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Ingredienten_Recepten_ReceptID",
-                        column: x => x.ReceptID,
-                        principalTable: "Recepten",
-                        principalColumn: "ID");
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Ingredienten_ReceptID",
-                table: "Ingredienten",
-                column: "ReceptID");
         }
 
         /// <inheritdoc />

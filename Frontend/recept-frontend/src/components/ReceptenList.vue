@@ -1,28 +1,35 @@
 <template>
   <div class="bodyDiv">
     <h1>Recepten:</h1>
-    <form @submit.prevent="createRecept">
+    <form @submit.prevent="createRecept()">
       Add recept
       <input v-model="naam" placeholder="Naam" />
       <input v-model="duur" placeholder="Duur" />
       <input v-model="moeilijkheid" placeholder="Moeilijkheid" />
+      <input v-model="beschrijving" placeholder="Beschrijving" />
       <button v-if="naam != ''">Add</button>
     </form>
     <br>
-    <div v-for="(recept, index) in recepten" :key="recept.id">
-      <div class="tableIndex">
-        <div class="insideTable">
-          <form v-if="recept.edit" @submit.prevent="updateRecept(recept)" class="formTable">
-            <input v-model="recept.naam" placeholder="x" />
-            <div class="saveTable">
-              <button>Save</button>
+    <div class="tableList">
+      <div v-for="(recept) in recepten" :key="recept.id">
+        <div class="tableIndex">
+          <div class="insideTable">
+            <form v-if="recept.edit" @submit.prevent="updateRecept(recept)" class="formTable">
+              <input v-model="recept.naam" placeholder="x" />
+              <div class="saveTable">
+                <button>Save</button>
+              </div>
+            </form>
+            <div v-else>
+              <p>{{ recept.naam }}</p>
+              <p>{{ recept.duur }} min, {{ recept.moeilijkheid }}</p>
             </div>
-          </form>
-          <p v-else>{{ recept.naam }}, {{ recept.duur }} min, {{ recept.moeilijkheid }}</p>
-        </div>
-        <div class="divRemove">
-          <button @click="removeRecept(recept.id)" v-if="!recept.edit">x</button>
-          <button @click="changeLabel(index)" v-if="!recept.edit">Edit</button>
+          </div>
+          <div class="divRemove">
+            <!-- <button @click="removeRecept(recept.id)" v-if="!recept.edit">x</button> -->
+            <!-- <button @click="changeLabel(index)" v-if="!recept.edit">Edit</button> -->
+            <p> {{  recept.beschrijving }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -63,10 +70,11 @@ export default {
       });
     },
     createRecept() {
-      receptDataService.createRecept(this.naam, this.duur, this.moeilijkheid).then(() => {
+      receptDataService.createRecept(this.naam, this.duur, this.moeilijkheid, this.beschrijving).then(() => {
         this.naam = "";
         this.duur = "";
         this.moeilijkheid = "";
+        this.beschrijving = "";
         this.refreshRecepten();
       });
     },

@@ -32,6 +32,7 @@ export default{
   position: fixed;
   top: 0;
   width: 100%;
+  box-shadow: 0px 1px 2px #4e3a28;
 }
 
 .headerListItem {

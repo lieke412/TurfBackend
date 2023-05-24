@@ -1,34 +1,65 @@
 .bodyDiv {
-    margin-left: 2%; 
+    margin-left: 1%; 
     margin-top: 50px; 
     margin-right: 2%;
 }
 
-.tableIndex {
-    display: flex; 
-    background-color: #cbc3aa; 
-    margin-bottom: 3px;
+.tableList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
+.tableIndex{
+    display: flex; 
+    flex-direction: column;
+    background-image: url("https://i.pinimg.com/236x/08/b5/69/08b5690c5d7fb36d083a44233b9c8927.jpg");
+    margin-bottom: 8px;
+    margin-right: 8px;
+    height: 300px;
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px #4e3a28;
+    color: white;
+}
+
+.tableIndex:hover{
+    box-shadow: 2px 2px 3px #4e3a28;
+    background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url("https://i.pinimg.com/236x/08/b5/69/08b5690c5d7fb36d083a44233b9c8927.jpg");
+}
+
+.tableIndex:hover .insideTable {
+    margin-top: 10%;
+    transform: translateY(-42px);
+    transition: transform 0.8s ease;
+}
+
+.tableIndex .divRemove {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    color: rgba(255, 255, 255, 0.0);
+  }
+  
+  .tableIndex:hover .divRemove {
+    opacity: 1;
+    transition-delay: 0.05s;
+    color: rgba(255, 255, 255, 1.0);
+  }
+
+
 .insideTable {
-    width: 20%; 
-    margin-left: 1.5%; 
-    height: 50px; 
+    margin-top: auto;
+    margin-bottom: 0;
+    margin-left: 5%; 
     border-radius: 5px;
 }
 
 .formTable {
-    width: 20%; margin-left: 1.5%;
+    margin-left: 1.5%;
 }
 
 .saveTable {
     margin-top: auto; 
-    margin-bottom: auto; 
     margin-left: 15px;
 }
 
-.divRemove {
-    margin-top: auto; 
-    margin-bottom: auto; 
-    margin-left: 15px;
-}

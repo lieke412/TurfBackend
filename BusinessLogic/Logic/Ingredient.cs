@@ -10,6 +10,7 @@ namespace BusinessLogic.Logic
     {
         public int ID { get; set; }
         public string Naam { get; set; }
+        public List<Recept>? recepten { get; set; }
 
     }
 }

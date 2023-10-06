@@ -7,6 +7,7 @@ namespace ReceptenVoorHuisgenoten2.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
+        public DbSet<Drink> Drinks { get; set; }
         public DbSet<Recept> Recepten { get; set; }
         public DbSet<Ingredient> Ingredienten { get; set; }
 

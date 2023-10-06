@@ -1,7 +1,7 @@
 <template>
   <div class="bodyDiv">
     <h1>Recepten:</h1>
-    <form @submit.prevent="createRecept()">
+    <form @submit.prevent="createRecept">
       Add recept
       <input v-model="naam" placeholder="Naam" />
       <input v-model="duur" placeholder="Duur" />
